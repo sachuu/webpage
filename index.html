@@ -5,7 +5,12 @@
         "message": "Hello World"
       };
 
-      window.parent.postMessage(message, '*');
+      function postMessageHandler() {
+        window.parent.postMessage(message, '*');
+      }
     </script>
   </head>
+  <body>
+    <button onclick="postMessageHandler();">Send Message</button>
+  </body>
 </html>

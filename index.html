@@ -1,31 +1,11 @@
 <html>
-<head>
-    <title>website title</title>
+  <head>
     <script type="text/javascript">
-        function pageProcessing() {
-            let messageButton = window.document.getElementById("post_message");
-            messageButton.addEventListener("click", () => {
-                let message = window.document.getElementById("message_text").value;
-                document.getElementById('flutter_widget').contentWindow.postMessage(
-                    {
-                        sender: "main_page",
-                        message: message
-                    },
-                    "*"
-                );
-            });
-        }
-        window.document.addEventListener('readystatechange', () => {
-            if (window.document.readyState == 'complete') {
-                pageProcessing();
-            }
-        }
-        );
+      let message = {
+        "message": "Hello World"
+      };
+
+      window.parent.postMessage(message, '*');
     </script>
-</head>
-<body>
-    <div>
-        <input type="text" id="message_text">&nbsp;<input type="button" id="post_message" value="Send Message">
-    </div>
-</body>
+  </head>
 </html>

@@ -4,13 +4,19 @@
       let message = {
         "message": "Hello World"
       };
-
+      let onCloseMessage= {
+        "onClose": "close-callback"
+      };
       function postMessageHandler() {
         window.parent.postMessage(message, '*');
+      }
+      function onClose() {
+        window.parent.postMessage(onCloseMessage , '*');
       }
     </script>
   </head>
   <body>
     <button onclick="postMessageHandler();">Send Message</button>
+    <button onclick="onClose();">Close Window</button>
   </body>
 </html>
